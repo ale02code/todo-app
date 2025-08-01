@@ -11,21 +11,23 @@
 
 
 <body class="w-full h-full flex items-center font-serif flex-col bg-neutral-100">
-  <div class="w-full w-[380px] px-10">
+  <div class="w-full max-w-[500px] px-10">
     <header class="mb-2 mt-10">
       <h1 class="text-xl mb-2 capitalize text-center">Lista de tareas</h1>
       <form id="form_task" class="flex gap-1">
-        <input id="input_task" class="w-[87%] bg-neutral-100 px-2 py-1 outline-none border border-black/50 rounded-sm"
-          type="text" placeholder="Nueva tarea">
+        <input id="input_task"
+          class="w-[calc(100%-50px)] bg-neutral-100 px-2 py-1 outline-none border border-black/50 rounded-sm"
+          type="text" placeholder="Nueva tarea" maxlength="75" required autocomplete="off" autofocus>
         <button id="btn_add_task"
-          class="w-[13%] bg-indigo-500 text-white font-bold flex items-center justify-center px-3 py-1 rounded-sm hover:cursor-pointer">+</button>
+          class="w-[50px] bg-indigo-500 text-white font-bold flex items-center justify-center px-3 py-1 rounded-sm hover:cursor-pointer">+</button>
       </form>
     </header>
     <main>
       <ul id="container_tasks" class="list-none">
         <div class="w-full flex items-center gap-2 mb-2 overflow-hidden bg-indigo-300 rounded-sm p-2">
-          <li class="max-w-[85%] break-words text-white">HolaHolaHolaHolaHolaHolaHolaHolaHolaHola</li>
-          <div class="w-[15%] flex items-center justify-center bg-indigo-600 rounded-sm py-1">
+          <li class="w-[calc(100%-50px)] break-words text-white">
+            HolaHolaHolaHolaHolaHaaaaaaaaaaaaaaaaaaaolaHolaHolaHolaHolaaaaaaaaaaaaaa</li>
+          <div class="w-[50px] h-10 flex items-center justify-center bg-indigo-600 rounded-sm py-1">
             <img src="imgs/trash.png" alt="trash-icon" class="cursor-pointer ml-1 w-7 h-7">
           </div>
         </div>
