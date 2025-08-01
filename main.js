@@ -1,5 +1,7 @@
 "use strict";
 
+const html = document.querySelector('html');
+
 const formTask = document.querySelector('#form_task');
 
 const inputTask = document.querySelector('#input_task');
@@ -24,7 +26,7 @@ const renderTasks = (arr) => {
     </div>`).join('')
 }
 
-const saveTasks = () => {
+const saveTasks = (tasks) => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -34,9 +36,11 @@ formTask.addEventListener('submit', (e) => {
   tasks.push({ title: currentTask })
 
   inputTask.value = '';
+  saveTasks(tasks);
+
   renderTasks(tasks);
   console.log('Tareas: ', tasks);
 });
 
-const loadTasks = () => {};
-const deleteTask = () => {};
+const loadTasks = () => { };
+const deleteTask = () => { };
