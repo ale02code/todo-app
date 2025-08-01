@@ -24,16 +24,19 @@ const renderTasks = (arr) => {
     </div>`).join('')
 }
 
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 formTask.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  let task = {
-    title: currentTask,
-  }
+  tasks.push({ title: currentTask })
 
-  tasks.push(task);
   inputTask.value = '';
-
   renderTasks(tasks);
   console.log('Tareas: ', tasks);
 });
+
+const loadTasks = () => {};
+const deleteTask = () => {};
