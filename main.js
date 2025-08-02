@@ -17,18 +17,15 @@ inputTask.addEventListener('input', (e) => {
 });
 
 const renderTasks = (arr) => {
-  containerTasks.innerHTML = arr.map(task => `
+  containerTasks.innerHTML = arr.map((task, i) => `
     <div class="w-full flex items-center gap-2 mb-2 overflow-hidden bg-indigo-300 rounded-sm p-2">
       <li class="w-[calc(100%-50px)] break-words text-white">${task.title}</li>
       <div class="w-[50px] h-10 flex items-center justify-center bg-indigo-600 rounded-sm py-1">
-        <img src="imgs/trash.png" alt="trash-icon" class="cursor-pointer ml-1 w-7 h-7">
+        <img src="imgs/trash.png" alt="trash-icon" class="delete-task cursor-pointer ml-1 w-7 h-7" data-index="${i}">
       </div>
     </div>`).join('')
 }
 
-const saveTasks = (tasks) => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
 
 formTask.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -42,5 +39,23 @@ formTask.addEventListener('submit', (e) => {
   console.log('Tareas: ', tasks);
 });
 
-const loadTasks = () => { };
-const deleteTask = () => { };
+const saveTasks = (tasks) => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+const loadTasks = () => {
+
+};
+
+const deleteTask = (index) => {
+  tasks.splice(index, 1);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+containerTasks.addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-task')) {
+    const index = parseInt(e.target.getAttribute('data-index'), 10);
+    deleteTask(index);
+    renderTasks(tasks);
+  }
+})
