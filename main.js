@@ -9,8 +9,10 @@ const btnAddTask = document.querySelector('#btn_add_task');
 
 const containerTasks = document.querySelector('#container_tasks');
 
+const btnClearAll = document.querySelector("#clear-all");
+
 let currentTask;
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 inputTask.addEventListener('input', (e) => {
   currentTask = e.target.value;
@@ -26,7 +28,7 @@ const renderTasks = (arr) => {
     </div>`).join('')
 }
 
-
+// Create Tasks
 formTask.addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -39,14 +41,7 @@ formTask.addEventListener('submit', (e) => {
   console.log('Tareas: ', tasks);
 });
 
-const saveTasks = (tasks) => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-
-const loadTasks = () => {
-
-};
-
+// Delete Tasks
 const deleteTask = (index) => {
   tasks.splice(index, 1);
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -58,4 +53,21 @@ containerTasks.addEventListener('click', (e) => {
     deleteTask(index);
     renderTasks(tasks);
   }
-})
+});
+
+btnClearAll.addEventListener('click', () => {
+  tasks = [];
+  localStorage.removeItem('tasks')
+  renderTasks(tasks);
+});
+
+// Save Tasks
+const saveTasks = (tasks) => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+// Render save tasks
+document.addEventListener('DOMContentLoaded', () => {
+  const saveTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  renderTasks(saveTasks);
+});
