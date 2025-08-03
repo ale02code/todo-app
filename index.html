@@ -22,19 +22,16 @@
           class="w-[50px] bg-indigo-500 text-white font-bold flex items-center justify-center px-3 py-1 rounded-sm hover:cursor-pointer">+</button>
       </form>
     </header>
+    <div class="mb-3">
+      <p>Tareas pendientes: <span id="tasks-numbre"></span></p>
+    </div>
     <main>
       <ul id="container_tasks" class="list-none">
-        <!-- <div class="w-full flex items-center gap-2 mb-2 overflow-hidden bg-indigo-300 rounded-sm p-2">
-          <li class="w-[calc(100%-50px)] break-words text-white">
-            HolaHolaHolaHolaHolaHaaaaaaaaaaaaaaaaaaaolaHolaHolaHolaHolaaaaaaaaaaaaaa</li>
-          <div class="w-[50px] h-10 flex items-center justify-center bg-indigo-600 rounded-sm py-1">
-            <img src="imgs/trash.png" alt="trash-icon" class="cursor-pointer ml-1 w-7 h-7">
-          </div>
-        </div> -->
+        <!-- task container -->
       </ul>
     </main>
     <footer class="flex justify-between items-center gap-2 mt-2">
-      <small>Elimina un elemento con doble click</small>
+      <small>Para eliminar una tarea debe estar completada</small>
       <button id="clear-all"
         class="bg-neutral-300 rounded-sm border-2 border-neutral-400 px-2 hover:text-white hover:bg-red-500 hover:border-red-600 transition-all">Clear
         All</button>

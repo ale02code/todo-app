@@ -7,6 +7,8 @@ const formTask = document.querySelector('#form_task');
 const inputTask = document.querySelector('#input_task');
 const btnAddTask = document.querySelector('#btn_add_task');
 
+const counterTasks = document.querySelector("#tasks-numbre");
+
 const containerTasks = document.querySelector('#container_tasks');
 
 const btnClearAll = document.querySelector("#clear-all");
@@ -26,6 +28,8 @@ const renderTasks = (arr) => {
         <img src="imgs/trash.png" alt="trash-icon" class="delete-task cursor-pointer ml-1 w-7 h-7" data-index="${i}">
       </div>
     </div>`).join('')
+
+  counterTasks.textContent = tasks.length;
 }
 
 // Create Tasks

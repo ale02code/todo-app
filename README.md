@@ -1,5 +1,4 @@
-
-### 🔹 1. **Gestor de tareas (To-Do List Avanzado)**
+### 🔹 1. **Gestor de tareas**
 
 > Crea una aplicación de lista de tareas con opciones para añadir, eliminar y marcar tareas como completadas. Usa localStorage para guardar los datos entre sesiones y filtros para ver tareas activas o completadas.
 
